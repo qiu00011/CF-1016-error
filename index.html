@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error 1016</title>
+    <title>Origin DNS error | Error 1016 | Cloudflare</title>
     <style>
         * {
             margin: 0;
@@ -29,25 +29,27 @@
         }
 
         h1 {
-            font-size: 48px;
+            font-size: 56px;
             font-weight: 300;
             color: #333;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
         }
 
         .error-meta {
             font-size: 13px;
-            color: #666;
-            font-weight: 400;
+            color: #999;
+            font-weight: 300;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 0.3px;
         }
 
         h2 {
             font-size: 32px;
             font-weight: 300;
-            color: #999;
-            margin-bottom: 40px;
-            letter-spacing: -0.3px;
+            color: #ccc;
+            margin-top: 5px;
+            letter-spacing: -0.5px;
         }
 
         .section {
@@ -55,7 +57,7 @@
         }
 
         .section-title {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 400;
             color: #333;
             margin-bottom: 20px;
@@ -78,7 +80,7 @@
         }
 
         strong {
-            font-weight: 600;
+            font-weight: 700;
             color: #333;
         }
 
@@ -129,6 +131,10 @@
 
         .footer-sep {
             margin: 0 5px;
+        }
+
+        .footer strong {
+            font-weight: 600;
         }
 
         .ip-reveal {
@@ -189,8 +195,8 @@
         <div class="feedback">
             <div class="feedback-text">Was this page helpful?</div>
             <div class="feedback-buttons">
-                <button class="feedback-btn" onclick="alert('Thank you for your feedback!')">Yes</button>
-                <button class="feedback-btn" onclick="alert('Thank you for your feedback!')">No</button>
+                <button class="feedback-btn" onclick="this.style.background='#0051c3';this.style.color='#fff'">Yes</button>
+                <button class="feedback-btn" onclick="this.style.background='#0051c3';this.style.color='#fff'">No</button>
             </div>
         </div>
 
@@ -213,7 +219,7 @@
         document.getElementById('rayid').textContent = rayID;
         document.getElementById('rayid2').textContent = rayID;
 
-        const currentDomain = window.location.hostname || '1.hyeri.top';
+        const currentDomain = window.location.hostname || 'cf.hyeri.us.kg';
         document.getElementById('domain1').textContent = currentDomain;
         document.getElementById('domain2').textContent = currentDomain;
 
