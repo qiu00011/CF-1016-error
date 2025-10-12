@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 1016</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #fafafa;
+            color: #333;
+            padding: 60px 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .error-title {
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .error-meta {
+            font-size: 13px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 300;
+            color: #999;
+            margin-bottom: 40px;
+            letter-spacing: -0.3px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        a {
+            color: #0051c3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        strong {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .feedback {
+            text-align: center;
+            margin: 60px 0 80px 0;
+        }
+
+        .feedback-text {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .feedback-buttons {
+            display: inline-flex;
+            gap: 10px;
+        }
+
+        .feedback-btn {
+            background: #fff;
+            border: 1px solid #0051c3;
+            color: #0051c3;
+            padding: 8px 30px;
+            border-radius: 4px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .feedback-btn:hover {
+            background: #0051c3;
+            color: #fff;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer a {
+            color: #0051c3;
+        }
+
+        .footer-sep {
+            margin: 0 5px;
+        }
+
+        .ip-reveal {
+            cursor: pointer;
+            color: #0051c3;
+        }
+
+        .ip-reveal:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 15px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-title">
+            <h1>Error 1016 <span class="error-meta">Ray ID: <span id="rayid"></span> • <span id="timestamp"></span></span></h1>
+            <h2>Origin DNS error</h2>
+        </div>
+
+        <div class="section">
+            <div class="section-title">What happened?</div>
+            <p>You've requested a page on a website (<span id="domain1"></span>) that is on the <a href="https://www.cloudflare.com" target="_blank">Cloudflare</a> network. Cloudflare is currently unable to resolve your requested domain (<span id="domain2"></span>).</p>
+            <p>Please see<br>
+            <a href="https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1016/" target="_blank">https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1016/</a> for more details.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">What can I do?</div>
+            <p><strong>If you are a visitor of this website:</strong><br>
+            Please try again in a few minutes.</p>
+            
+            <p><strong>If you are the owner of this website:</strong><br>
+            Check your DNS settings. If you are using a CNAME origin record, make sure it is valid and resolvable. <a href="https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/" target="_blank">Additional troubleshooting information here.</a></p>
+        </div>
+
+        <div class="feedback">
+            <div class="feedback-text">Was this page helpful?</div>
+            <div class="feedback-buttons">
+                <button class="feedback-btn" onclick="alert('Thank you for your feedback!')">Yes</button>
+                <button class="feedback-btn" onclick="alert('Thank you for your feedback!')">No</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            Cloudflare Ray ID: <strong><span id="rayid2"></span></strong> <span class="footer-sep">•</span> Your IP: <span class="ip-reveal" onclick="showIP(this)">Click to reveal</span> <span class="footer-sep">•</span> Performance & security by <a href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
+        </div>
+    </div>
+
+    <script>
+        function generateRayID() {
+            const chars = '0123456789abcdef';
+            let rayID = '';
+            for (let i = 0; i < 16; i++) {
+                rayID += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return rayID;
+        }
+
+        const rayID = generateRayID();
+        document.getElementById('rayid').textContent = rayID;
+        document.getElementById('rayid2').textContent = rayID;
+
+        const currentDomain = window.location.hostname || '1.hyeri.top';
+        document.getElementById('domain1').textContent = currentDomain;
+        document.getElementById('domain2').textContent = currentDomain;
+
+        function updateTimestamp() {
+            const now = new Date();
+            const year = now.getUTCFullYear();
+            const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+            const day = String(now.getUTCDate()).padStart(2, '0');
+            const hours = String(now.getUTCHours()).padStart(2, '0');
+            const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+            const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+            document.getElementById('timestamp').textContent = `${year}-${month}-${day} ${hours}:${minutes}:${seconds} UTC`;
+        }
+
+        updateTimestamp();
+        setInterval(updateTimestamp, 1000);
+
+        function showIP(element) {
+            element.textContent = '203.0.113.42';
+            element.style.cursor = 'default';
+            element.style.color = '#666';
+            element.onclick = null;
+        }
+    </script>
+</body>
+</html>
