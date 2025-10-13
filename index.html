@@ -38,7 +38,7 @@
 
         .error-meta {
             font-size: 13px;
-            color: #999;
+            color: #666;
             font-weight: 300;
             font-family: 'Courier New', Courier, monospace;
             letter-spacing: 0.3px;
@@ -47,7 +47,7 @@
         h2 {
             font-size: 32px;
             font-weight: 300;
-            color: #ccc;
+            color: #999;
             margin-top: 5px;
             letter-spacing: -0.5px;
         }
@@ -121,6 +121,13 @@
         .feedback-btn:hover {
             background: #0051c3;
             color: #fff;
+        }
+
+        .feedback-message {
+            font-size: 16px;
+            color: #333;
+            margin-top: 15px;
+            display: none;
         }
 
         .footer {
@@ -200,11 +207,12 @@
         </div>
 
         <div class="feedback">
-            <div class="feedback-text">Was this page helpful?</div>
-            <div class="feedback-buttons">
-                <button class="feedback-btn" onclick="this.style.background='#0051c3';this.style.color='#fff'">Yes</button>
-                <button class="feedback-btn" onclick="this.style.background='#0051c3';this.style.color='#fff'">No</button>
+            <div id="feedback-text" class="feedback-text">Was this page helpful?</div>
+            <div id="feedback-buttons" class="feedback-buttons">
+                <button class="feedback-btn" onclick="showFeedbackMessage()">Yes</button>
+                <button class="feedback-btn" onclick="showFeedbackMessage()">No</button>
             </div>
+            <div id="feedback-message" class="feedback-message">Thank you for your feedback!</div>
         </div>
 
         <div class="footer">
@@ -249,6 +257,15 @@
             element.style.cursor = 'default';
             element.style.color = '#666';
             element.onclick = null;
+        }
+
+        function showFeedbackMessage() {
+            const feedbackText = document.getElementById('feedback-text');
+            const feedbackButtons = document.getElementById('feedback-buttons');
+            const feedbackMessage = document.getElementById('feedback-message');
+            feedbackText.style.display = 'none';
+            feedbackButtons.style.display = 'none';
+            feedbackMessage.style.display = 'block';
         }
     </script>
 </body>
